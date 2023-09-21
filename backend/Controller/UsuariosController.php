@@ -16,9 +16,21 @@ class UsuariosController{
         $resultado = $this->model->select('users',[]);
         return $resultado;
     }
+    public function getUsersById($email){
+        $resultado = $this->model->select('users',['email'=>$email['email']]);
+        return $resultado;
+    }
     public function criarUsers($data){
-      
-        $resultado = $this->model->insert('users',$data);
+        $this->usuarios->setNome($data['nome']);
+        $this->usuarios->setEmail($data['email']);
+        $this->usuarios->setSenha($data['senha']);
+
+        $resultado = $this->model->insert('users',
+        [
+            'nome' =>$this->usuarios->getNome(),
+            'email'=> $this->usuarios->getEmail(),
+            'senha'=>$this->usuarios->getSenha()
+        ]);
         return $resultado;
     }
 
