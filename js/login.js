@@ -28,9 +28,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event){
         return response.json();
     })
     .then(data => {
-        if(data.token){
-            localStorage.setItem('token', data.token)
-            
+        if(data.status){
             alert('Login bem-sucedido!');
             window.location.href = './';
         }

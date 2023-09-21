@@ -37,7 +37,10 @@ event.preventDefault();
         if(!data.status){
             alert('Usuário já existe')
         }else{
-            alert("Usuário criado: " + JSON.stringify(data));
+            alert("Usuário criado: " );
+            document.getElementById('nome').value='';
+            document.getElementById('email').value='';
+            document.getElementById('senha').value='';
             window.location.href = './';
         } 
        
