@@ -13,6 +13,8 @@ if(!$resultado || !password_verify($body['senha'], $resultado[0]['senha'])){
 }
 
 if(password_verify($body['senha'], $resultado[0]['senha'])){
+    session_start();
+    $_SESSION['email']=$body['email'];
     echo json_encode(['status'=>true]);
     exit;
 }

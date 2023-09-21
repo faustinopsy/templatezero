@@ -30,7 +30,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event){
     .then(data => {
         if(data.status){ 
             alert('Login bem-sucedido!');
-            window.location.href = './';
+            window.location.href = 'restrito.php';
         }
         else{
             alert('Erro: ' + data.error);
